@@ -1,6 +1,5 @@
 import math
 import unittest
-
 from app.circle import area, perimeter
 
 
@@ -19,6 +18,18 @@ class TestCircle(unittest.TestCase):
         """Проверяет нулевой радиус."""
         self.assertEqual(area(0), 0)
         self.assertEqual(perimeter(0), 0)
+
+    def test_negative_radius(self):
+        """Проверяет отрицательный радиус."""
+        self.assertAlmostEqual(area(-4), math.pi * 16)
+        self.assertAlmostEqual(perimeter(-4), -math.pi * 8)
+
+    def test_invalid_type(self):
+        """Проверяет неверный тип данных."""
+        with self.assertRaises(TypeError):
+            area(None)
+        with self.assertRaises(TypeError):
+            perimeter(None)
 
 
 if __name__ == "__main__":

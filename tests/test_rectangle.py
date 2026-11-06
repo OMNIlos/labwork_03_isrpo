@@ -1,5 +1,4 @@
 import unittest
-
 from app.rectangle import area, perimeter
 
 
@@ -17,6 +16,18 @@ class TestRectangle(unittest.TestCase):
     def test_zero_side(self):
         """Проверяет нулевую сторону."""
         self.assertEqual(area(5, 0), 0)
+
+    def test_negative_side(self):
+        """Проверяет отрицательную сторону."""
+        self.assertEqual(area(-2, 3), -6)
+        self.assertEqual(perimeter(-2, 3), 2)
+
+    def test_invalid_type(self):
+        """Проверяет неверный тип данных."""
+        with self.assertRaises(TypeError):
+            area(None, 3)
+        with self.assertRaises(TypeError):
+            perimeter(None, 3)
 
 
 if __name__ == "__main__":
