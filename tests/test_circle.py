@@ -32,6 +32,13 @@ class TestCircle(unittest.TestCase):
         with self.assertRaises(TypeError):
             perimeter(None)
 
+    def test_string_type(self):
+        """Проверяет передачу строки."""
+        with self.assertRaises(TypeError):
+            area("4")
+        with self.assertRaises(TypeError):
+            perimeter("4")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -29,6 +29,13 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             perimeter(None, 3)
 
+    def test_string_type(self):
+        """Проверяет передачу строки."""
+        with self.assertRaises(TypeError):
+            area("2", "3")
+        with self.assertRaises(TypeError):
+            perimeter("2", 3)
+
 
 if __name__ == "__main__":
     unittest.main()

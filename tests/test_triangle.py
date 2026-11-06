@@ -29,6 +29,13 @@ class TestTriangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             perimeter(None, 4, 5)
 
+    def test_string_type(self):
+        """Проверяет передачу строки."""
+        with self.assertRaises(TypeError):
+            area("4", 3)
+        with self.assertRaises(TypeError):
+            perimeter("3", 4, 5)
+
 
 if __name__ == "__main__":
     unittest.main()
