@@ -17,10 +17,15 @@ class TestTriangle(unittest.TestCase):
         """Проверяет нулевую высоту."""
         self.assertEqual(area(5, 0), 0)
 
-    def test_negative_values(self):
-        """Проверяет отрицательные значения."""
-        self.assertEqual(area(-4, 3), -6)
-        self.assertEqual(perimeter(-3, 4, 5), 6)
+    def test_area_negative_value(self):
+        """Проверяет ошибку для отрицательного значения."""
+        with self.assertRaises(ValueError):
+            area(-4, 3)
+
+    def test_perimeter_negative_value(self):
+        """Проверяет ошибку для отрицательного значения."""
+        with self.assertRaises(ValueError):
+            perimeter(-3, 4, 5)
 
     def test_invalid_type(self):
         """Проверяет неверный тип данных."""

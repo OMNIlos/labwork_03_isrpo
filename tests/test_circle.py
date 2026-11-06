@@ -20,10 +20,15 @@ class TestCircle(unittest.TestCase):
         self.assertEqual(area(0), 0)
         self.assertEqual(perimeter(0), 0)
 
-    def test_negative_radius(self):
-        """Проверяет отрицательный радиус."""
-        self.assertAlmostEqual(area(-4), PI * 16)
-        self.assertAlmostEqual(perimeter(-4), -PI * 8)
+    def test_area_negative_radius(self):
+        """Проверяет ошибку для отрицательного радиуса."""
+        with self.assertRaises(ValueError):
+            area(-4)
+
+    def test_perimeter_negative_radius(self):
+        """Проверяет ошибку для отрицательного радиуса."""
+        with self.assertRaises(ValueError):
+            perimeter(-4)
 
     def test_invalid_type(self):
         """Проверяет неверный тип данных."""

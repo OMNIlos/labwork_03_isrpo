@@ -18,10 +18,15 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(area(0), 0)
         self.assertEqual(perimeter(0), 0)
 
-    def test_negative_side(self):
-        """Проверяет отрицательную сторону."""
-        self.assertEqual(area(-4), 16)
-        self.assertEqual(perimeter(-4), -16)
+    def test_area_negative_side(self):
+        """Проверяет ошибку для отрицательной стороны."""
+        with self.assertRaises(ValueError):
+            area(-4)
+
+    def test_perimeter_negative_side(self):
+        """Проверяет ошибку для отрицательной стороны."""
+        with self.assertRaises(ValueError):
+            perimeter(-4)
 
     def test_invalid_type(self):
         """Проверяет неверный тип данных."""
