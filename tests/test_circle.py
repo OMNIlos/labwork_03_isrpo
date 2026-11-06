@@ -1,18 +1,19 @@
-import math
 import unittest
 from app.circle import area, perimeter
+
+PI = 3.141592653589793
 
 
 class TestCircle(unittest.TestCase):
     def test_area(self):
         """Проверяет площадь круга."""
-        self.assertAlmostEqual(area(4), math.pi * 16)
-        self.assertAlmostEqual(area(25), math.pi * 625)
+        self.assertAlmostEqual(area(4), PI * 16)
+        self.assertAlmostEqual(area(25), PI * 625)
 
     def test_perimeter(self):
         """Проверяет длину окружности."""
-        self.assertAlmostEqual(perimeter(4), math.pi * 8)
-        self.assertAlmostEqual(perimeter(25), math.pi * 50)
+        self.assertAlmostEqual(perimeter(4), PI * 8)
+        self.assertAlmostEqual(perimeter(25), PI * 50)
 
     def test_zero_radius(self):
         """Проверяет нулевой радиус."""
@@ -21,8 +22,8 @@ class TestCircle(unittest.TestCase):
 
     def test_negative_radius(self):
         """Проверяет отрицательный радиус."""
-        self.assertAlmostEqual(area(-4), math.pi * 16)
-        self.assertAlmostEqual(perimeter(-4), -math.pi * 8)
+        self.assertAlmostEqual(area(-4), PI * 16)
+        self.assertAlmostEqual(perimeter(-4), -PI * 8)
 
     def test_invalid_type(self):
         """Проверяет неверный тип данных."""
